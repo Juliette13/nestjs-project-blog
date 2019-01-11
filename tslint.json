@@ -21,7 +21,7 @@
     "no-console": [true],
     "eofline": true,
     "linebreak-style": [true, "LF"],
-    "quotemark": [true, "single"],
+    "quotemark": [true, "double"],
     "indent": [true, "spaces", 2],
     "member-access": [false],
     "ordered-imports": [true],

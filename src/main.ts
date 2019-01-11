@@ -1,9 +1,20 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { configService } from './config/config.service';
+import { NestFactory } from "@nestjs/core";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { AppModule } from "./app.module";
+import { configService } from "./config/config.service";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(configService.getNumber('PORT'));
+
+  const options = new DocumentBuilder()
+    .setTitle("Blog")
+    .setDescription("Swagger du Blog")
+    .setVersion("1.0")
+    .addTag("blog")
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup("docs", app, document);
+
+  await app.listen(configService.getNumber("PORT"));
 }
 bootstrap();
