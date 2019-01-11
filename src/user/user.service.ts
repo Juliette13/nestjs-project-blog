@@ -14,6 +14,10 @@ export class UserService {
     this.userRepository.save(user);
   }
 
+  login(email: User, password: User) {
+
+  }
+
   /*
    * Returns a user identified by its id
    *

@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
+import * as crypto from "crypto";
 
 /*import { ArticleEntity } from "../article/article.entity";
 import { CommentaireEntity } from "../commentaire/commentaire.entity";
@@ -46,6 +47,6 @@ export class User {
   @UpdateDateColumn()
   updated: Date;
 
-  @PrimaryGeneratedColumn("uuid", { name: "user_id" })
+  @PrimaryGeneratedColumn({ name: "user_id" })
   userId: string;
 }
