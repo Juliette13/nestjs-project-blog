@@ -6,29 +6,41 @@ import { UserRepository } from './user.repository';
 @Injectable()
 export class UserService {
 
-  constructor(
-    @Inject(UserRepository) private readonly userRepository: UserRepository,
-  ) {}
+  constructor(@Inject(UserRepository) private readonly userRepository: UserRepository) {}
 
   create(user: User) {
     this.userRepository.save(user);
   }
 
-  login(email: User, password: User) {
-
-  }
-
-  /*
+  /**
    * Returns a user identified by its id
    *
    * @param id - user id
    * @returns Resolves with User
-
-  async getById(id: string) {
+  **/
+  async getById(id: number) {
     return this.userRepository.findOne(id);
-  }*/
-
-  findOne(id: number): User {
-    return this.userRepository[id];
   }
+
+  async deleteUser(id: number) {
+    this.userRepository.delete(id);
+  }
+
+  async updateUser(id: number, user: User) {
+    this.userRepository.update(id, user);
+      try {
+          return await this.userRepository.update(id, user);
+      } catch (err) {
+          return err;
+      };
+  }
+
+  async authenticate(user: Partial<User>){
+    return this.userRepository.find({
+      email: user.email,
+      password: user.password
+    }
+   )
+  }
+
 }
