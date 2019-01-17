@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99fdc130-24d4-4c86-b043-c5af4556ef85" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/user/models/UpdateUserDto.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/user/user.controller.ts" afterPath="$PROJECT_DIR$/src/user/user.controller.ts" />
-      <change beforePath="$PROJECT_DIR$/src/user/user.service.ts" afterPath="$PROJECT_DIR$/src/user/user.service.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -282,7 +279,7 @@
       <workItem from="1547196474899" duration="2084000" />
       <workItem from="1547198895789" duration="7523000" />
       <workItem from="1547212519958" duration="12920000" />
-      <workItem from="1547710599714" duration="5700000" />
+      <workItem from="1547710599714" duration="5732000" />
     </task>
     <task id="LOCAL-00001" summary="Adding sources of project">
       <created>1547193312133</created>
@@ -333,11 +330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547714727124</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update --&gt; Correct">
+      <created>1547717795482</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547717795482</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32333000" />
+    <option name="totallyTimeSpent" value="32365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -380,7 +384,8 @@
     <MESSAGE value="Wrong start | Cancel &amp; Replace&#10;Create new user" />
     <MESSAGE value="Issue UUID with MySQL&#10;Update and working fine without uuid" />
     <MESSAGE value="User Authentication&#10;Bug --&gt; Update User" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Authentication&#10;Bug --&gt; Update User" />
+    <MESSAGE value="Update --&gt; Correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update --&gt; Correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
