@@ -6,6 +6,7 @@ import { ApiOperation } from "@nestjs/swagger";
 import { User } from "./interfaces/user.interface";
 import { CreateUserDto } from "./models/CreateUserDto";
 import { AuthUserDTO } from "./models/AuthUserDTO";
+import { UpdateUserDto } from "./models/UpdateUserDto";
 import { UserService } from "./user.service";
 
 @ApiBearerAuth()
@@ -13,6 +14,13 @@ import { UserService } from "./user.service";
 @Controller("User")
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Post(":user")
+  @ApiResponse({ status: HttpStatus.OK})
+  @ApiResponse({ status: HttpStatus.NOT_FOUND})
+  async authenticate(@Body() authUserDTO: AuthUserDTO) {
+    return this.userService.authenticate(authUserDTO);
+  }
 
   @Post()
   @ApiOperation({ title: "Create User"})
@@ -39,15 +47,8 @@ export class UserController {
   }
 
   @Put(":id")
-  async updateById(@Param("id") id: number, @Body() createUserDto: CreateUserDto) {
-    return this.userService.updateUser(id, createUserDto);
-  }
-
-  @Post(":user")
-  @ApiResponse({ status: HttpStatus.OK})
-  @ApiResponse({ status: HttpStatus.NOT_FOUND})
-  async authenticate(@Body() authUserDTO: AuthUserDTO) {
-    return this.userService.authenticate(authUserDTO);
+  async updateById(@Param("id") id: number, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.updateUser(id, updateUserDto);
   }
 
 }

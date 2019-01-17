@@ -26,13 +26,9 @@ export class UserService {
     this.userRepository.delete(id);
   }
 
-  async updateUser(id: number, user: User) {
-    this.userRepository.update(id, user);
-      try {
-          return await this.userRepository.update(id, user);
-      } catch (err) {
-          return err;
-      };
+  async updateUser(id: number, user: Partial<User>) {
+    await this.userRepository.update(id, user);
+    return this.userRepository.findOne(id);
   }
 
   async authenticate(user: Partial<User>){
