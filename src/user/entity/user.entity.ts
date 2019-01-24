@@ -1,27 +1,28 @@
+import * as crypto from "crypto";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
-import * as crypto from "crypto";
+import { getOrDefault } from "../../utils/copy-constructor.tools";
 
-/*import { ArticleEntity } from "../article/article.entity";
-import { CommentaireEntity } from "../commentaire/commentaire.entity";
-import { CreateUserDto } from "./models/CreateUserDto";*/
+import { Note } from "../../note/entity/note.entity";
+import { Article } from "../../article/entity/article.entity";
+import { Commentaire } from "../../commentaire/entity/commentaire.entity";
 
 @Entity({ name: "user" })
 export class User {
-
-  /*@OneToMany(type => ArticleEntity, article => article.user)
-  article: ArticleEntity[];*/
+  @OneToMany(type => Article, article => article.articleId)
+  article: Article[];
 
   @Column({ type: "varchar", name: "avatar" })
   avatar: string;
 
-  /*@OneToMany(type => CommentaireEntity, commentaire => commentaire.user)
-  commentaire: CommentaireEntity[];*/
+  @OneToMany(type => Commentaire, commentaire => commentaire.commentaireId)
+  commentaire: Commentaire[];
 
   @CreateDateColumn()
   created: Date;
@@ -38,6 +39,9 @@ export class User {
   @Column({ type: "varchar", name: "mobile_phone", length: 31 })
   mobilePhone: string;
 
+  @OneToMany(type => Note, note => note.noteId)
+  note: Note[];
+
   @Column({ type: "varchar", name: "password" })
   password: string;
 
@@ -49,4 +53,15 @@ export class User {
 
   @PrimaryGeneratedColumn({ name: "user_id" })
   userId: number;
+
+  constructor(copy: Partial<User> = {}) {
+    this.email = getOrDefault(copy.email, null);
+    this.firstName = getOrDefault(copy.firstName, null);
+    this.lastName = getOrDefault(copy.lastName, null);
+    this.mobilePhone = getOrDefault(copy.mobilePhone, null);
+    this.password = getOrDefault(copy.password, null);
+    this.type = getOrDefault(copy.type, null);
+    this.avatar = getOrDefault(copy.avatar, null);
+    this.userId = getOrDefault(copy.userId, undefined);
+  }
 }

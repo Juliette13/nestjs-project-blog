@@ -10,17 +10,20 @@ import { Article } from "../../article/entity/article.entity";
 import { User } from "../../user/entity/user.entity";
 import { getOrDefault } from "../../utils/copy-constructor.tools";
 
-@Entity({ name: "commentaire" })
-export class Commentaire {
+// import { ArticleEntity } from "../article/article.entity";
+// import { CommentaireEntity } from "../commentaire/commentaire.entity";
+// import { CreateUserDto } from "./models/CreateUserDto";
+
+@Entity({ name: "note" })
+export class Note {
   @ManyToOne(type => Article, article => article.articleId)
   article: Article;
-  @PrimaryGeneratedColumn({ name: "commentaire_id" })
-  commentaireId: number;
 
-  @Column({ type: "varchar", name: "content", length: 1000 })
-  content: string;
   @CreateDateColumn()
   created: Date;
+
+  @PrimaryGeneratedColumn({ name: "note_id" })
+  noteId: number;
 
   @UpdateDateColumn()
   updated: Date;
@@ -28,8 +31,11 @@ export class Commentaire {
   @ManyToOne(type => User, user => user.userId)
   user: User;
 
-  constructor(copy: Partial<Commentaire> = {}) {
-    this.commentaireId = getOrDefault(copy.commentaireId, null);
-    this.content = getOrDefault(copy.content, null);
+  @Column({ type: "integer", name: "value" })
+  mark: number;
+
+  constructor(copy: Partial<Note> = {}) {
+    this.noteId = getOrDefault(copy.noteId, null);
+    this.mark = getOrDefault(copy.mark, null);
   }
 }
