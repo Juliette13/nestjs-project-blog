@@ -9,16 +9,16 @@ import {
 } from "typeorm";
 import { getOrDefault } from "../../utils/copy-constructor.tools";
 
-import { Note } from "../../note/entity/note.entity";
 import { Article } from "../../article/entity/article.entity";
 import { Commentaire } from "../../commentaire/entity/commentaire.entity";
+import { Note } from "../../note/entity/note.entity";
 
 @Entity({ name: "user" })
 export class User {
   @OneToMany(type => Article, article => article.articleId)
   article: Article[];
 
-  @Column({ type: "varchar", name: "avatar" })
+  @Column({ type: "varchar", name: "avatar", nullable: true })
   avatar: string;
 
   @OneToMany(type => Commentaire, commentaire => commentaire.commentaireId)
@@ -36,7 +36,7 @@ export class User {
   @Column({ type: "varchar", name: "last_name", length: 100 })
   lastName: string;
 
-  @Column({ type: "varchar", name: "mobile_phone", length: 31 })
+  @Column({ type: "varchar", name: "mobile_phone", length: 31, nullable: true })
   mobilePhone: string;
 
   @OneToMany(type => Note, note => note.noteId)
@@ -45,7 +45,7 @@ export class User {
   @Column({ type: "varchar", name: "password" })
   password: string;
 
-  @Column({ type: "varchar", name: "type" })
+  @Column({ type: "varchar", name: "type", nullable: true })
   type: string;
 
   @UpdateDateColumn()

@@ -1,12 +1,37 @@
-import { Controller, Delete, Get, HttpStatus, Param } from "@nestjs/common";
-import { ApiBearerAuth, ApiResponse, ApiUseTags } from "@nestjs/swagger";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Param,
+  Post
+} from "@nestjs/common";
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiUseTags
+} from "@nestjs/swagger";
 import { ArticleService } from "./article.service";
+import { CreateArticleDTO } from "./models/CreateArticleDTO";
 
 @ApiBearerAuth()
 @ApiUseTags("Article")
 @Controller("Article")
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
+
+  @Post(":article")
+  @ApiOperation({ title: "Create Article" })
+  @ApiResponse({
+    status: 201,
+    description: "The record has been successfully created."
+  })
+  @ApiResponse({ status: 403, description: "Forbidden." })
+  async create(@Body() createArticleDTO: CreateArticleDTO) {
+    this.articleService.create(createArticleDTO);
+  }
 
   @Delete(":id")
   async deleteArticle(@Param("id") id: number) {

@@ -1,5 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { ArticleRepository } from "./article.repository";
+import { Article } from "./interfaces/article.interface";
 
 @Injectable()
 export class ArticleService {
@@ -8,10 +9,21 @@ export class ArticleService {
     private readonly articleRepository: ArticleRepository
   ) {}
 
+  async create(article: Article) {
+    this.articleRepository.save(article);
+  }
+
+  /**
+   * Delete article by its id
+   *
+   * @param id
+   * @returns Resolves with Article
+   **/
   // if user create article
   async deleteArticle(id: number) {
     this.articleRepository.delete(id);
   }
+
   /**
    * Returns all article
    *

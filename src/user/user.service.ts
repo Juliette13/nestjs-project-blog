@@ -1,5 +1,4 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { Repository } from "typeorm";
 import { User } from "./interfaces/user.interface";
 import { UserRepository } from "./user.repository";
 
@@ -10,7 +9,7 @@ export class UserService {
   ) {}
 
   async create(user: User) {
-    this.userRepository.save(user);
+    return this.userRepository.save(user);
   }
 
   // if admin
@@ -22,9 +21,13 @@ export class UserService {
    * Returns all user
    *
    * @returns Resolves with User
-   **/
+   */
   async getAll() {
     return this.userRepository.find();
+  }
+
+  async getByEmail(email: string) {
+    return this.userRepository.findOne({"email" : email});
   }
 
   /**
@@ -32,7 +35,7 @@ export class UserService {
    *
    * @param id - user id
    * @returns Resolves with User
-   **/
+   */
   async getById(id: number) {
     return this.userRepository.findOne(id);
   }
@@ -43,7 +46,7 @@ export class UserService {
    *
    * @param id, user
    * @returns Resolves with User
-   **/
+   */
   async updateUser(id: number, user: Partial<User>) {
     await this.userRepository.update(id, user);
     return this.userRepository.findOne(id);

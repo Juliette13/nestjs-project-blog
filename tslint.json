@@ -5,7 +5,7 @@
     "no-unused-expression": true
   },
   "rules": {
-    "prettier": true,
+    "prettier": false,
     "no-namespace": [true, "allow-declarations"],
     "whitespace": [
       true,
