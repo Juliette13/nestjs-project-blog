@@ -9,11 +9,11 @@ export class UserService {
     @Inject(UserRepository) private readonly userRepository: UserRepository
   ) {}
 
-
   async create(user: User) {
     this.userRepository.save(user);
   }
 
+  // if admin
   async deleteUser(id: number) {
     this.userRepository.delete(id);
   }

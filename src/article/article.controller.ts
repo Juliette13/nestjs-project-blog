@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Param } from "@nestjs/common";
+import { Controller, Delete, Get, HttpStatus, Param } from "@nestjs/common";
 import { ApiBearerAuth, ApiResponse, ApiUseTags } from "@nestjs/swagger";
 import { ArticleService } from "./article.service";
 
@@ -7,6 +7,11 @@ import { ArticleService } from "./article.service";
 @Controller("Article")
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
+
+  @Delete(":id")
+  async deleteArticle(@Param("id") id: number) {
+    return this.articleService.deleteArticle(id);
+  }
 
   @Get("AllArticle")
   @ApiResponse({ status: HttpStatus.OK })

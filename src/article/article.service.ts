@@ -7,6 +7,11 @@ export class ArticleService {
     @Inject(ArticleRepository)
     private readonly articleRepository: ArticleRepository
   ) {}
+
+  // if user create article
+  async deleteArticle(id: number) {
+    this.articleRepository.delete(id);
+  }
   /**
    * Returns all article
    *
