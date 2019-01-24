@@ -1,6 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { Repository } from "typeorm";
-import { IUserAuth } from "./interfaces/user.auth.interface";
 import { User } from "./interfaces/user.interface";
 import { UserRepository } from "./user.repository";
 
@@ -11,13 +10,14 @@ export class UserService {
   ) {}
 
 
-  create(user: User) {
+  async create(user: User) {
     this.userRepository.save(user);
   }
 
   async deleteUser(id: number) {
     this.userRepository.delete(id);
   }
+
   /**
    * Returns all user
    *

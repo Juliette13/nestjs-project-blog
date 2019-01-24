@@ -46,7 +46,7 @@ export class UserController {
     return this.userService.getById(id);
   }
 
-  @Get("All")
+  @Get("AllUser")
   @ApiResponse({ status: HttpStatus.OK })
   @ApiResponse({ status: HttpStatus.NOT_FOUND })
   async getAllUser() {
