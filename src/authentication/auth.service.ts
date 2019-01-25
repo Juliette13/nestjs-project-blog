@@ -18,7 +18,7 @@ export interface ISignUp {
 }
 
 export interface ITokenPayloadUnsigned {
-  uid: number; // user id
+  uid: string; // user id
 }
 
 export interface ITokenPayload extends ITokenPayloadUnsigned {

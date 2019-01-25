@@ -1,5 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { User } from "./interfaces/user.interface";
+import { CreateUserDto } from "./models/CreateUserDto";
 import { UserRepository } from "./user.repository";
 
 @Injectable()
@@ -8,7 +9,7 @@ export class UserService {
     @Inject(UserRepository) private readonly userRepository: UserRepository
   ) {}
 
-  async create(user: User) {
+  async create(user: CreateUserDto) {
     return this.userRepository.save(user);
   }
 

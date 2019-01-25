@@ -34,7 +34,7 @@ export class UserController {
   })
   @ApiResponse({ status: 403, description: "Forbidden." })
   async create(@Body() createUserDto: CreateUserDto) {
-    this.userService.create(createUserDto);
+    return this.userService.create(createUserDto);
   }
 
   @Delete(":id")

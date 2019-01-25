@@ -1,5 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { User } from "./entity/user.entity";
+import { CreateUserDto } from "./models/CreateUserDto";
 import { UpdateUserDto } from "./models/UpdateUserDto";
 import { UserController } from "./user.controller";
 import { UserService } from "./user.service";
@@ -43,13 +44,30 @@ describe("User Controller", () => {
                 email: "nico.remise@jaimenestmaispasjuliette.com",
                 mobilePhone: "0698892458",
                 type: "admin",
-                password: "haha"};
-
+                password: "haha"
+            };
             service.updateUser = jest.fn().mockResolvedValue(userUpdate);
             const result =  await controller.updateById(id, userUpdate);
             expect(result).toBe(userUpdate);
             expect(service.updateUser).toHaveBeenCalledWith(id, userUpdate);
+        });
+    });
 
+    describe("createUser", () => {
+        it("should run the result of service.createUser", async () => {
+            const userCreate: CreateUserDto = {
+                firstName: "toto",
+                lastName: "toto",
+                avatar: "/src/coco.jpg",
+                email: "nico.remise@jaimenestmaispasjuliette.com",
+                mobilePhone: "0698892458",
+                type: "admin",
+                password: "haha"
+            };
+            service.create = jest.fn().mockResolvedValue(userCreate);
+            const result =  await controller.create(userCreate);
+            expect(result).toBe(userCreate);
+            expect(service.create).toHaveBeenCalledWith(userCreate);
         });
     });
 });
