@@ -4,10 +4,6 @@ export class UpdateUserDto {
     @ApiModelProperty()
     readonly avatar: string;
     @ApiModelProperty()
-    readonly created: Date;
-    @ApiModelProperty()
-    readonly updated: Date;
-    @ApiModelProperty()
     readonly email: string;
     @ApiModelProperty()
     readonly firstName: string;

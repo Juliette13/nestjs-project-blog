@@ -1,7 +1,7 @@
-import { UserRepository } from './user.repository';
-import { UserService } from './user.service';
+import { UserRepository } from "./user.repository";
+import { UserService } from "./user.service";
 
-describe('UserService', () => {
+describe("UserService", () => {
   let service: UserService;
   let repository: UserRepository;
 
@@ -10,10 +10,10 @@ describe('UserService', () => {
     service = new UserService(repository);
   });
 
-  describe('getById', () => {
-    it('should call and return repository.findOne with id passed in param', async () => {
-      const id = 'monId';
-      const user = { name: 'toto' };
+  describe("getById", () => {
+    it("should call and return repository.findOne with id passed in param", async () => {
+      const id = "monId";
+      const user = { name: "toto" };
       repository.findOne = jest.fn().mockResolvedValue(user);
 
       const result = await service.getById(id);

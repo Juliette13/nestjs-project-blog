@@ -9,6 +9,7 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle("Blog")
     .setDescription("Swagger du Blog")
+      .addBearerAuth("Authorization", "header")
     .setVersion("1.0")
     .addTag("blog")
     .build();

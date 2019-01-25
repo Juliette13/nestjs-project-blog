@@ -52,7 +52,7 @@ export class User {
   updated: Date;
 
   @PrimaryGeneratedColumn({ name: "user_id" })
-  userId: number;
+  userId: string;
 
   constructor(copy: Partial<User> = {}) {
     this.email = getOrDefault(copy.email, null);

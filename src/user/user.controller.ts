@@ -7,16 +7,16 @@ import {
     Param,
     Post,
     Put, UseGuards
-} from '@nestjs/common';
+} from "@nestjs/common";
 import { ApiUseTags } from "@nestjs/swagger";
 import { ApiBearerAuth } from "@nestjs/swagger";
 import { ApiOperation } from "@nestjs/swagger";
 import { ApiResponse } from "@nestjs/swagger";
+import { JwtAuthGuard } from "../authentication/auth.guard";
 import { User } from "./interfaces/user.interface";
 import { CreateUserDto } from "./models/CreateUserDto";
 import { UpdateUserDto } from "./models/UpdateUserDto";
 import { UserService } from "./user.service";
-import {JwtAuthGuard} from '../authentication/auth.guard';
 
 @ApiBearerAuth()
 @ApiUseTags("User")
@@ -38,15 +38,8 @@ export class UserController {
   }
 
   @Delete(":id")
-  async deleteUser(@Param("id") id: number) {
+  async deleteUser(@Param("id") id: string) {
     return this.userService.deleteUser(id);
-  }
-
-  @Get(":id")
-  @ApiResponse({ status: HttpStatus.OK })
-  @ApiResponse({ status: HttpStatus.NOT_FOUND })
-  async getById(@Param("id") id: number) {
-    return this.userService.getById(id);
   }
 
   @Get("AllUser")
@@ -56,9 +49,16 @@ export class UserController {
     return this.userService.getAll();
   }
 
+  @Get(":id")
+  @ApiResponse({ status: HttpStatus.OK })
+  @ApiResponse({ status: HttpStatus.NOT_FOUND })
+  async getById(@Param("id") id: string) {
+    return this.userService.getById(id);
+  }
+
   @Put(":id")
   async updateById(
-    @Param("id") id: number,
+    @Param("id") id: string,
     @Body() updateUserDto: UpdateUserDto
   ) {
     return this.userService.updateUser(id, updateUserDto);

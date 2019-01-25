@@ -13,7 +13,7 @@ export class UserService {
   }
 
   // if admin
-  async deleteUser(id: number) {
+  async deleteUser(id: string) {
     this.userRepository.delete(id);
   }
 
@@ -36,7 +36,7 @@ export class UserService {
    * @param id - user id
    * @returns Resolves with User
    */
-  async getById(id: number) {
+  async getById(id: string) {
     return this.userRepository.findOne(id);
   }
 
@@ -47,7 +47,7 @@ export class UserService {
    * @param id, user
    * @returns Resolves with User
    */
-  async updateUser(id: number, user: Partial<User>) {
+  async updateUser(id: string, user: Partial<User>) {
     await this.userRepository.update(id, user);
     return this.userRepository.findOne(id);
   }

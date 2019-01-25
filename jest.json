@@ -8,6 +8,7 @@
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
+  "testRegex": ".*\\.test.ts",
   "modulePaths": ["<rootDir>/src/"],
   "moduleFileExtensions": ["ts", "tsx", "js", "json"],
   "collectCoverageFrom": [
