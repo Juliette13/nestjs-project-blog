@@ -26,7 +26,7 @@ describe("UserController (e2e)", () => {
     })
 
     describe("Create user", () => {
-        it("/user/create", () => {
+        it("/User/create", () => {
             const user = {
                 firstName: "toto",
                 lastName: "toto",
@@ -40,6 +40,24 @@ describe("UserController (e2e)", () => {
                 .post("/user/create")
                 .send(user)
                 .expect(201)
-        })
-    })
+        });
+    });
+
+    describe("Update user", () => {
+        it("/User/updateById", () => {
+            const user = {
+                firstName: "toto",
+                lastName: "toto",
+                avatar: "/src/coco.jpg",
+                email: "nico.remise@jaimenestmaispasjuliette.com",
+                mobilePhone: "0698892458",
+                type: "admin",
+                password: "haha"
+            }
+            return request(app.getHttpServer())
+                .put("/User/updateById")
+                .send(user)
+                .expect(201)
+        });
+    });
 })
