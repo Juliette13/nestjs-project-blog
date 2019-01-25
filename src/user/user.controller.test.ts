@@ -70,4 +70,15 @@ describe("User Controller", () => {
             expect(service.create).toHaveBeenCalledWith(userCreate);
         });
     });
+
+    describe("deleteById", () => {
+        it("should return the result of service.deleteById", async () => {
+            const id = "monId";
+            const user = { name: "toto" };
+            service.deleteUser = jest.fn().mockResolvedValue(user);
+            const result = await controller.deleteUser(id);
+            expect(result).toBe(user);
+            expect(service.deleteUser).toHaveBeenCalledWith(id);
+        });
+    });
 });

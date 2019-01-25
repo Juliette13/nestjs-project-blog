@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99fdc130-24d4-4c86-b043-c5af4556ef85" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/auth.service.ts" afterPath="$PROJECT_DIR$/src/authentication/auth.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/user/models/CreateUserDto.ts" afterPath="$PROJECT_DIR$/src/user/models/CreateUserDto.ts" />
       <change beforePath="$PROJECT_DIR$/src/user/user.controller.test.ts" afterPath="$PROJECT_DIR$/src/user/user.controller.test.ts" />
-      <change beforePath="$PROJECT_DIR$/src/user/user.controller.ts" afterPath="$PROJECT_DIR$/src/user/user.controller.ts" />
-      <change beforePath="$PROJECT_DIR$/src/user/user.service.ts" afterPath="$PROJECT_DIR$/src/user/user.service.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +19,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="user.controller.test.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="user.controller.test.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/user/user.controller.test.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+                <state relative-caret-position="364">
+                  <caret line="67" column="64" lean-forward="true" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
                   <folding>
                     <element signature="e#0#54#0" expanded="true" />
                   </folding>
@@ -55,11 +51,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="user.controller.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="user.controller.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/user/user.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+                <state relative-caret-position="289">
+                  <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#136#0" expanded="true" />
                   </folding>
@@ -128,7 +124,7 @@
           <file leaf-file-name="user.controller.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/user/user.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
+                <state relative-caret-position="41">
                   <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#136#0" expanded="true" />
@@ -203,8 +199,8 @@
         <option value="$PROJECT_DIR$/src/user/models/CreateUserDto.ts" />
         <option value="$PROJECT_DIR$/src/user/user.service.ts" />
         <option value="$PROJECT_DIR$/src/authentication/auth.service.ts" />
-        <option value="$PROJECT_DIR$/src/user/user.controller.test.ts" />
         <option value="$PROJECT_DIR$/src/user/user.controller.ts" />
+        <option value="$PROJECT_DIR$/src/user/user.controller.test.ts" />
       </list>
     </option>
   </component>
@@ -360,7 +356,7 @@
       <workItem from="1548315287162" duration="24242000" />
       <workItem from="1548345557063" duration="614000" />
       <workItem from="1548401770023" duration="1930000" />
-      <workItem from="1548406740058" duration="16032000" />
+      <workItem from="1548406740058" duration="16304000" />
     </task>
     <task id="LOCAL-00001" summary="Adding sources of project">
       <created>1547193312133</created>
@@ -481,11 +477,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548415615412</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="TEST : &#10;- CreateUser">
+      <created>1548426021647</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1548426021648</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91900000" />
+    <option name="totallyTimeSpent" value="92172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -563,7 +566,8 @@
     <MESSAGE value="[US] En tant qu'Auteur, je souhaite pouvoir supprimer un article #39" />
     <MESSAGE value="[US] En tant qu'Auteur, je souhaite pouvoir écrire un article #40&#10;+&#10;Add JWT Authentication --&gt; IS WORKING !" />
     <MESSAGE value="TEST : &#10;- GetAllUser&#10;- UpdateById&#10;&#10;Note : Beaucoup de problèmes, donc petit push mais grande motivation pour continuer tout ça - #JeveuxunA" />
-    <option name="LAST_COMMIT_MESSAGE" value="TEST : &#10;- GetAllUser&#10;- UpdateById&#10;&#10;Note : Beaucoup de problèmes, donc petit push mais grande motivation pour continuer tout ça - #JeveuxunA" />
+    <MESSAGE value="TEST : &#10;- CreateUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="TEST : &#10;- CreateUser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -926,22 +930,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/user/user.controller.test.ts">
+    <entry file="file://$PROJECT_DIR$/src/user/user.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+        <state relative-caret-position="289">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/user/user.controller.ts">
+    <entry file="file://$PROJECT_DIR$/src/user/user.controller.test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="364">
+          <caret line="67" column="64" lean-forward="true" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
           <folding>
-            <element signature="e#0#136#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
