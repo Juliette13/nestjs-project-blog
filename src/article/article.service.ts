@@ -34,12 +34,23 @@ export class ArticleService {
   }
 
   /**
-   * Returns a user identified by its id
+   * Returns a article identified by its id
    *
-   * @param id - user id
-   * @returns Resolves with User
+   * @param id - article id
+   * @returns Resolves with Article
    **/
   async getById(id: number) {
     return this.articleRepository.findOne(id);
+  }
+
+    /**
+     * Update a article identified by its id
+     *
+     * @param id - article id
+     * @returns Resolves with Article
+     **/
+  async updateArticle(id: string, article: Partial<Article>) {
+      await this.articleRepository.update(id, article);
+      return this.articleRepository.findOne(id);
   }
 }

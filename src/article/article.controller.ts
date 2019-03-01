@@ -1,11 +1,11 @@
 import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpStatus,
-  Param,
-  Post
+    Body,
+    Controller,
+    Delete,
+    Get,
+    HttpStatus,
+    Param,
+    Post, Put
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -15,6 +15,7 @@ import {
 } from "@nestjs/swagger";
 import { ArticleService } from "./article.service";
 import { CreateArticleDTO } from "./models/CreateArticleDTO";
+import { UpdateArticleDTO } from "./models/UpdateArticleDTO";
 
 @ApiBearerAuth()
 @ApiUseTags("Article")
@@ -51,4 +52,13 @@ export class ArticleController {
   async getById(@Param("id") id: number) {
     return this.articleService.getById(id);
   }
+
+  @Put(":id")
+  async updateById(
+      @Param("id") id: string,
+      @Body() updateArticleDto: UpdateArticleDTO
+  ) {
+    return this.articleService.updateArticle(id, updateArticleDto);
+  }
+
 }
