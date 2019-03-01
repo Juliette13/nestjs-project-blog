@@ -15,7 +15,7 @@ export class UserService {
 
   // if admin
   async deleteUser(id: string) {
-    this.userRepository.delete(id);
+    return this.userRepository.delete(id);
   }
 
   /**
