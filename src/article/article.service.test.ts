@@ -22,4 +22,18 @@ describe("ArticleService", () => {
             expect(repository.findOne).toHaveBeenCalledWith(id);
         });
     });
+
+    describe("update", () => {
+        it("should call and return repository.update", async () => {
+            const article = { title: "weekend in tokyo" };
+            const id = "monId";
+            repository.update = jest.fn().mockResolvedValue(article);
+
+            const result = await service.updateArticle(id, article as any);
+
+            expect(result).toEqual(article);
+            expect(repository.update).toHaveBeenCalledWith(id, article);
+        });
+    });
+
 });

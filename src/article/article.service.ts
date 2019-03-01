@@ -53,4 +53,15 @@ export class ArticleService {
     return this.articleRepository.findOne(id);
   }
 
+    /**
+     * Update Article
+     * Return updated Article by its id
+     *
+     * @param id, article
+     * @returns Resolves with article
+     */
+    async updateArticle(id: string, article: Partial<Article>) {
+        await this.articleRepository.update(id, article);
+        return this.articleRepository.findOne(id);
+    }
 }
