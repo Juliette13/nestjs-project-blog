@@ -49,4 +49,19 @@ describe("ArticleService", () => {
         });
     });
 
+    describe("getAll", () => {
+        it("should call and return repository.find", async () => {
+            const articles = [
+                { title: "weekend in tokyo" },
+                { name: "le nest c complique mais on na pas le choix"}
+            ];
+            repository.find = jest.fn().mockResolvedValue(articles);
+
+            const result = await service.getAll();
+
+            expect(result).toBe(articles);
+            expect(repository.find).toHaveBeenCalled();
+        });
+    });
+
 });
