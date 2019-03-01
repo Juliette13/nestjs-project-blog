@@ -48,4 +48,19 @@ describe("UserService", () => {
         });
     });
 
+    describe("getAll", () => {
+        it("should call and return repository.find", async () => {
+            const users = [
+                { name: "Relou" },
+                { name: "Remise"}
+            ];
+            repository.find = jest.fn().mockResolvedValue(users);
+
+            const result = await service.getAll();
+
+            expect(result).toBe(users);
+            expect(repository.find).toHaveBeenCalled();
+        });
+    });
+
 });
