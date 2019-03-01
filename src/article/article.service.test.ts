@@ -9,3 +9,17 @@ describe("ArticleService", () => {
         repository = {} as any;
         service = new ArticleService(repository);
     });
+
+    describe("getById", () => {
+        it("should call and return repository.findOne with id passed in param", async () => {
+            const id = 1;
+            const article = {title: "weekend in tokyo"};
+            repository.findOne = jest.fn().mockResolvedValue(article);
+
+            const result = await service.getById(id);
+
+            expect(result).toBe(article);
+            expect(repository.findOne).toHaveBeenCalledWith(id);
+        });
+    });
+});

@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { User } from "../user/entity/user.entity";
 import { ArticleRepository } from "./article.repository";
 import { Article } from "./interfaces/article.interface";
 
@@ -21,7 +22,7 @@ export class ArticleService {
    **/
   // if user create article
   async deleteArticle(id: number) {
-    this.articleRepository.delete(id);
+    return this.articleRepository.delete(id);
   }
 
   /**
@@ -34,6 +35,15 @@ export class ArticleService {
   }
 
   /**
+   * Returns all article by author
+   * @param user
+   * @returns Resolves with Article
+   **/
+  async getArticleByUser(author: User) {
+    return this.articleRepository.find({"user": author});
+  }
+
+  /**
    * Returns a article identified by its id
    *
    * @param id - article id
@@ -43,14 +53,4 @@ export class ArticleService {
     return this.articleRepository.findOne(id);
   }
 
-    /**
-     * Update a article identified by its id
-     *
-     * @param id - article id
-     * @returns Resolves with Article
-     **/
-  async updateArticle(id: string, article: Partial<Article>) {
-      await this.articleRepository.update(id, article);
-      return this.articleRepository.findOne(id);
-  }
 }
