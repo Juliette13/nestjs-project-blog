@@ -22,4 +22,17 @@ describe("UserService", () => {
       expect(repository.findOne).toHaveBeenCalledWith(id);
     });
   });
+
+    describe("create", () => {
+        it("should call and return repository.save", async () => {
+            const user = { email: "nicoco_coucou@gmail.zbing" };
+            repository.save = jest.fn().mockResolvedValue(user);
+
+            const result = await service.create(user as any);
+
+            expect(result).toBe(user);
+            expect(repository.save).toHaveBeenCalledWith(user);
+        });
+    });
+
 });
