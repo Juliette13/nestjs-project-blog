@@ -35,4 +35,17 @@ describe("UserService", () => {
         });
     });
 
+    describe("delete", () => {
+        it("should call repository.delete", async () => {
+            const id = "monId";
+            const user = { id: "monId", email: "nicoco_coucou@gmail.zbingzbing" };
+            repository.delete = jest.fn().mockResolvedValue(user);
+
+            const result = await service.deleteUser(id);
+
+            expect(result).toBe(user);
+            expect(repository.delete).toHaveBeenCalledWith(id);
+        });
+    });
+
 });
