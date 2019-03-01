@@ -23,16 +23,29 @@ describe("ArticleService", () => {
         });
     });
 
-    describe("update", () => {
-        it("should call and return repository.update", async () => {
+    describe("updateArticle", () => {
+        it("should call and return repository.updateArticle", async () => {
             const article = { title: "weekend in tokyo" };
-            const id = "monId";
+            const id = 1;
             repository.update = jest.fn().mockResolvedValue(article);
 
             const result = await service.updateArticle(id, article as any);
 
             expect(result).toEqual(article);
             expect(repository.update).toHaveBeenCalledWith(id, article);
+        });
+    });
+
+    describe("deleteArticle", () => {
+        it("should call repository.deleteArticle", async () => {
+            const id = 1;
+            const article = { title: "weekend in tokyo" };
+            repository.delete = jest.fn().mockResolvedValue(article);
+
+            const result = await service.deleteArticle(id);
+
+            expect(result).toBe(article);
+            expect(repository.delete).toHaveBeenCalledWith(id);
         });
     });
 
