@@ -63,4 +63,17 @@ describe("UserService", () => {
         });
     });
 
+    describe("update", () => {
+        it("should call and return repository.update", async () => {
+            const user = { name: "Jujudu3615" };
+            const id = "monId";
+            repository.update = jest.fn().mockResolvedValue(user);
+
+            const result = await service.updateUser(id, user as any);
+
+            expect(result).toEqual(user);
+            expect(repository.update).toHaveBeenCalledWith(id, user);
+        });
+    });
+
 });
