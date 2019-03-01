@@ -35,10 +35,10 @@ describe("UserService", () => {
         });
     });
 
-    describe("delete", () => {
-        it("should call repository.delete", async () => {
+    describe("deleteUser", () => {
+        it("should call repository.deleteUser", async () => {
             const id = "monId";
-            const user = { id: "monId", email: "nicoco_coucou@gmail.zbingzbing" };
+            const user = { name: "toto" };
             repository.delete = jest.fn().mockResolvedValue(user);
 
             const result = await service.deleteUser(id);
@@ -65,7 +65,7 @@ describe("UserService", () => {
 
     describe("update", () => {
         it("should call and return repository.update", async () => {
-            const user = { name: "Jujudu3615" };
+            const user = { name: "toto" };
             const id = "monId";
             repository.update = jest.fn().mockResolvedValue(user);
 
